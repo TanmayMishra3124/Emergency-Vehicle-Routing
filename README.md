@@ -1,5 +1,3 @@
-# emergency-vehicle-routing
-
 # 🚨 Emergency Vehicle Routing
 
 A smart traffic-aware emergency vehicle routing system that predicts the best path from a source to a destination using simulated traffic data. The goal is to reduce emergency response time by selecting the most efficient route based on real-time traffic conditions in a SUMO simulation environment.
