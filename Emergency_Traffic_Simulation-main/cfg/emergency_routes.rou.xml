@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-03-25 18:50:45 by Eclipse SUMO duarouter Version 1.22.0
+<duarouterConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="updated.net.xml"/>
+        <route-files value="emergency_trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="emergency_routes.rou.xml"/>
+    </output>
+
+</duarouterConfiguration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="emergency_v" length="8.00" maxSpeed="43.00" speedFactor="3.00" vClass="emergency" guiShape="emergency" minGapLat="0.00" lcSpeedGain="1" lcSublane="0" lcOpposite="10" lcAssertive="1" lcTimeToImpatience="2" lcSpeedGainRight="1" lcSpeedGainLookahead="10" lcOvertakeRight="1" lcOvertakeDeltaSpeedFactor="1" carFollowModel="EIDM" accel="4" decel="3"/>
+    <vehicle id="emergency_trip" type="emergency_v" depart="0.00" departLane="best" departSpeed="max">
+        <route edges="E1 E1.596 E2 -E32 -E21 -E19 E37 -E29 E41"/>
+    </vehicle>
+</routes>
