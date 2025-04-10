@@ -28,12 +28,21 @@ It uses real-time traffic simulation with SUMO, traffic prediction models, and a
 
 1. **Traffic Simulation** is run using SUMO with a realistic traffic scenario.
 2. **Traffic Data Extraction** collects vehicle counts, speeds, and occupancy per edge.
-3. **LSTM Models** predict future traffic flow on each road.
+3. **LSTM Models** predict future traffic flow on each road segment.
 4. **Travel Time Estimation** uses predicted flow to calculate time per edge.
-5. **Routing Algorithm** finds the best route using estimated times.
-6. **Final Evaluation** prints best path, total time, and distance.
+5. **Q-Learning Algorithm** learns an optimal path from source to destination by maximizing rewards based on predicted travel times.
+6. **Final Evaluation** prints the best path, total time, and distance.
 
 ---
+
+## 🧠 Techniques Used
+
+- **LSTM (Long Short-Term Memory)** for traffic flow prediction  
+- **Q-Learning** for adaptive path selection (reinforcement learning-based)
+- **NetworkX** to model the road network as a graph
+- **SUMO (Simulation of Urban MObility)** for traffic simulation
+
+--
 
 ## 📦 Requirements
 
