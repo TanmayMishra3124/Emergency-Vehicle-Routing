@@ -52,8 +52,8 @@ It uses real-time traffic simulation with SUMO, traffic prediction models, and a
 
 ## 📈 Sample Output
 
-✅ Q-Learning training complete.
-🚓 Best route: J1 -> J2 -> J18 -> J3
-🛣️ Edges taken: E0 -> E8 -> E9
-📏 Total Distance: 2.84 km
-⏱ Total Estimated Time: 12.7 seconds
+- ✅ Q-Learning training complete.
+- 🚓 Best route: J1 -> J2 -> J18 -> J3
+- 🛣️ Edges taken: E0 -> E8 -> E9
+- 📏 Total Distance: 2.84 km
+- ⏱ Total Estimated Time: 12.7 seconds
