@@ -26,3 +26,11 @@ It uses real-time traffic simulation with SUMO, traffic prediction models, and a
 
 ---
 
+## 🧪 How It Works
+
+1. **Traffic Simulation** is run using SUMO with a realistic traffic scenario.
+2. **Traffic Data Extraction** collects vehicle counts, speeds, and occupancy per edge.
+3. **LSTM Models** predict future traffic flow on each road.
+4. **Travel Time Estimation** uses predicted flow to calculate time per edge.
+5. **Routing Algorithm** finds the best route using estimated times.
+6. **Final Evaluation** prints best path, total time, and distance.
