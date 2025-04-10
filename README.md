@@ -34,3 +34,26 @@ It uses real-time traffic simulation with SUMO, traffic prediction models, and a
 4. **Travel Time Estimation** uses predicted flow to calculate time per edge.
 5. **Routing Algorithm** finds the best route using estimated times.
 6. **Final Evaluation** prints best path, total time, and distance.
+
+---
+
+## Requirements
+
+pandas==1.5.3
+numpy==1.24.2
+matplotlib==3.7.1
+networkx==3.1
+scikit-learn==1.2.2
+tensorflow==2.12.0
+keras==2.12.0
+traci==1.18.0
+
+---
+
+## 📈 Sample Output
+
+✅ Q-Learning training complete.
+🚓 Best route: J1 -> J2 -> J18 -> J3
+🛣️ Edges taken: E0 -> E8 -> E9
+📏 Total Distance: 2.84 km
+⏱ Total Estimated Time: 12.7 seconds
