@@ -35,16 +35,18 @@ It uses real-time traffic simulation with SUMO, traffic prediction models, and a
 
 ---
 
-## Requirements
+## 📦 Requirements
 
--pandas==1.5.3
--numpy==1.24.2
--matplotlib==3.7.1
--networkx==3.1
--scikit-learn==1.2.2
--tensorflow==2.12.0
--keras==2.12.0
--traci==1.18.0
+- pandas==1.5.3  
+- numpy==1.24.2  
+- matplotlib==3.7.1  
+- networkx==3.1  
+- scikit-learn==1.2.2  
+- tensorflow==2.12.0  
+- keras==2.12.0  
+- traci==1.18.0
+
+
 
 ---
 
