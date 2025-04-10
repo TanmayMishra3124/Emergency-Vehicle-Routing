@@ -78,53 +78,53 @@ def main(road_id):
             extract_traffic_data(step, edge_writer)
 
         # Commented Out: Adding Emergency Vehicle
-        # if step == em_vehicle_start_time:
-        #     traci.vehicle.add(em_vid, "em_route", typeID="emergency_v", departSpeed="30", departLane="1")
-        #     traci.vehicle.setParameter(em_vid, "emergency", "yes")
-        #     traci.vehicle.setParameter(em_vid, "device.bluelight.reactiondist", str(90))
-        #     traci.vehicle.setMaxSpeed(em_vid, 50)
-        #     traci.vehicle.setSpeedMode(em_vid, 3)
-        #     if start_gui == "True":
-        #         traci.gui.trackVehicle("View #0", em_vid)
-        #         traci.gui.setZoom("View #0", 3000)
+        if step == em_vehicle_start_time:
+            traci.vehicle.add(em_vid, "em_route", typeID="emergency_v", departSpeed="30", departLane="1")
+            traci.vehicle.setParameter(em_vid, "emergency", "yes")
+            traci.vehicle.setParameter(em_vid, "device.bluelight.reactiondist", str(90))
+            traci.vehicle.setMaxSpeed(em_vid, 50)
+            traci.vehicle.setSpeedMode(em_vid, 3)
+            if start_gui == "True":
+                traci.gui.trackVehicle("View #0", em_vid)
+                traci.gui.setZoom("View #0", 3000)
 
         # Commented Out: Dynamic Traffic Light Control for Emergency Vehicle
-        # if step > em_vehicle_start_time:
-        #     for tls in traci.trafficlight.getIDList():
-        #         if em_vid in traci.vehicle.getIDList():
-        #             em_road = traci.vehicle.getRoadID(em_vid)
-        #             if em_road in traci.trafficlight.getControlledLinks(tls):
-        #                 traci.trafficlight.setPhase(tls, 0)
+        if step > em_vehicle_start_time:
+            for tls in traci.trafficlight.getIDList():
+                if em_vid in traci.vehicle.getIDList():
+                    em_road = traci.vehicle.getRoadID(em_vid)
+                    if em_road in traci.trafficlight.getControlledLinks(tls):
+                        traci.trafficlight.setPhase(tls, 0)
 
         # Commented Out: Vehicle Evacuation Logic
-        # if step % 20 == 0 and step > em_vehicle_start_time:
-        #     if em_vid in traci.vehicle.getIDList():
-        #         em_info = get_vid_info(em_vid, step)
-        #         road_id = traci.vehicle.getRoadID(em_vid)
-        #         car_list = traci.edge.getLastStepVehicleIDs(road_id)
+        if step % 20 == 0 and step > em_vehicle_start_time:
+            if em_vid in traci.vehicle.getIDList():
+                em_info = get_vid_info(em_vid, step)
+                road_id = traci.vehicle.getRoadID(em_vid)
+                car_list = traci.edge.getLastStepVehicleIDs(road_id)
 
-        #         for vid in car_list:
-        #             if vid == em_vid:
-        #                 continue
-        #             
-        #             res = get_vid_info(vid, step)
-        #             traci.vehicle.setLaneChangeMode(vid, lcmode)
-        #             
-        #             # Evacuation Condition
-        #             if (0 < res[4] - em_info[4] < detect_range) and res[5] == em_info[5]:
-        #                 lcsl = traci.vehicle.couldChangeLane(vid, 1)  # Left Lane
-        #                 lcsr = traci.vehicle.couldChangeLane(vid, -1) # Right Lane
-        # 
-        #                 if lcsr:
-        #                     traci.vehicle.changeLaneRelative(vid, -1, lctime)
-        #                     print(f"Vehicle {vid} moved right to clear the way.")
-        #                 elif lcsl:
-        #                     traci.vehicle.changeLaneRelative(vid, 1, lctime)
-        #                     print(f"Vehicle {vid} moved left to clear the way.")
-        #                 else:
-        #                     # Reduce Speed if No Lane Change Possible
-        #                     traci.vehicle.slowDown(vid, 2, 5)
-        #                     print(f"Vehicle {vid} reduced speed to avoid collision.")
+                for vid in car_list:
+                    if vid == em_vid:
+                        continue
+                    
+                    res = get_vid_info(vid, step)
+                    traci.vehicle.setLaneChangeMode(vid, lcmode)
+                    
+                    # Evacuation Condition
+                    if (0 < res[4] - em_info[4] < detect_range) and res[5] == em_info[5]:
+                        lcsl = traci.vehicle.couldChangeLane(vid, 1)  # Left Lane
+                        lcsr = traci.vehicle.couldChangeLane(vid, -1) # Right Lane
+        
+                        if lcsr:
+                            traci.vehicle.changeLaneRelative(vid, -1, lctime)
+                            print(f"Vehicle {vid} moved right to clear the way.")
+                        elif lcsl:
+                            traci.vehicle.changeLaneRelative(vid, 1, lctime)
+                            print(f"Vehicle {vid} moved left to clear the way.")
+                        else:
+                            # Reduce Speed if No Lane Change Possible
+                            traci.vehicle.slowDown(vid, 2, 5)
+                            print(f"Vehicle {vid} reduced speed to avoid collision.")
 
         # Data Logging for Vehicles (Commented Out)
         # if step % 50 == 0:
