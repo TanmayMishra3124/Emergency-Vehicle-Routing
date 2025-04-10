@@ -26,6 +26,3 @@ It uses real-time traffic simulation with SUMO, traffic prediction models, and a
 
 ---
 
-## 📂 Folder Structure
-
-├── data/ # Contains traffic and prediction CSVs │ ├── data.csv # Collected traffic data │ ├── predicted_times.csv # Predicted travel time per edge │ ├── sumo/ # SUMO simulation files │ ├── *.net.xml # Network file │ ├── *.rou.xml # Route file │ ├── *.sumocfg # Config file │ ├── src/ # Source code │ ├── train_predictor.py # LSTM model to predict traffic │ ├── graph_builder.py # Builds graph with predicted times │ ├── routing_agent.py # Pathfinding logic │ ├── evaluate.py # Evaluation metrics │ ├── main.py # Main script to run entire pipeline ├── requirements.txt └── README.md
